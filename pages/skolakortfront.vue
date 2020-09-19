@@ -2,7 +2,7 @@
 
   <div class="skolakort">
 
-     <v-container>
+      <v-container>
       <v-row no-gutters>
 
   <v-card v-for="post in filteredList" :key="id"
@@ -51,7 +51,7 @@
 
   </v-card>
 
-     </v-row>
+       </v-row>
    </v-container>
 
   </div><!-- .skolakort -->

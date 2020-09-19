@@ -1,6 +1,8 @@
 <template>
 
- <v-container>
+<div class="arskortfront">
+
+    <v-container>
       <v-row no-gutters>
 
   <v-card v-for="post in posts" :key="id"
@@ -9,7 +11,7 @@
     outlined
   >
 
-    <v-col cols="12" sm="12">
+  <v-col cols="12" sm="12">
 
     <v-list-item five-line>
       <v-list-item-content>
@@ -48,6 +50,7 @@
      </v-row>
    </v-container>
 
+</div><!-- .arskortfront -->
 
 </template>
 

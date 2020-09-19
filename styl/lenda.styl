@@ -5,113 +5,250 @@
 
 .lenda {
 
-// arskort ******************************************
-.toppart {
-
-// card *********************************************
-div {
-
-div {
-
-.v-card {
-
-.v-card__title {
-
-span.headline {
-
-i {
-
-}// i
-
-}// span.headline
-
-button.v-btn {
-
-span.v-btn__content {
- margin-left -50px !important
-
-i {
- padding-right 10px
- margin-top -2px
-}// i
-
-}// span.v-btn__content
-
-}// button.v-btn
-
-}// .v-card__title
-
-}// .v-card
-
-}// col
-
-}// row
-
-div {
-
-div {
-
-.mb-8 {
-
-p {
-
-i {
-
-}// i
-
-span.pl-2 {
- color skag
-}// span.pl-2
-
-b {
- color teal
-}// b
-
-}// p
-
-}// .mb-8
-
-// starfsmaadur
+// maturfront //////////////////////////////////////
 .flex {
+ margin-top -28px
 
-span {
+.py-1 {
  
 img {
- margin-top -18px
+ margin-top 5px
 }// img
 
-}// span
+}// py-1
+
+.pl-2 {
+ color teal
+ 
+i {
+ font-size 18px
+ margin-top -4px
+ margin-right -3px
+}// i
+
+}// .pl-2
 
 .text-sm {
-
-p.sm {
- font-size 13px
+ margin-top -20px
+ margin-left 8px
 
 i {
  font-size 16px
+ margin-right -2px
+
+&.clock {
  margin-top -2px
+ margin-left 2px
+ margin-right -2px
+}// &.clock
+
 }// i
-
-}// p.sm
-
-p.sgray {
- font-size 12px !important
- margin-top -12px
- 
-i {
- font-size 14px
-}// i
-
-}// p.sgray
 
 }// .text-sm
 
 }// .flex
 
-}// div
+
+// kort front ///////////////////////////////////////////////
+.kortfront {
+
+blockquote {
+ padding 0
+ margin 0
+}// blockquote
+
+// arskort ******************************************
+.container {
+ margin-top -15px
+.row {
+
+.v-card {
+ 
+div {
+
+.v-list-item {
+ 
+.v-list-item__content {
+
+.overline {// Árskort
+ background rgba(skag .4)
+ color white
+ text-align center
+}// .overline
+
+.v-list-item__title {
+
+
+}// .v-list-item__title
+
+.v-list-item__subtitle {
+ color dark
+
+i {
+ color gray
+ font-size 16px
+}// i
+
+span {
+
+&.gildir {
+ color skag
+}// &.gildir
+
+i {
+
+}// i
+
+}// span
+
+}// .v-list-item__subtitle
+
+}// .v-list-item__content
+
+}// .v-list-item
+
+.v-card__actions {
+ background rgba(skag .4)
+ padding 0
+
+button.v-btn {
+
+span.v-btn__content {
+ color white
+ font-size 14px
+ text-transform none
+
+i {
+ color dark
+ font-size 18px
+ padding-right 2px
+}// i
+
+span {
+ color white
+ font-size 14px
+ text-transform none
+}// span
+
+}// span.v-btn__content
+
+}// button.v-btn
+
+}// .v-card__actions
 
 }// div
 
-}// .toppart
+}// .v-card
+
+}// .row
+
+}// .container
+
+// skolakort front /////////////////////////
+.skolakort {
+ margin-top 15px
+ 
+.container {
+
+.row {
+
+.v-card {
+
+div {
+
+.v-list-item {
+
+.v-list-item__content {
+
+.overline {// Árskort
+ background: linear-gradient(110deg, rgba(skoli .7) 60%, rgba(skag .7) 60%);
+ color white
+ text-align center
+}// .overline
+
+.v-list-item__title {
+
+}// .v-list-item__title
+
+.v-list-item__subtitle {
+ color dark
+
+i {
+ color gray
+ font-size 16px
+}// i
+
+span {
+
+&.gildir {
+ color llorange
+}// &.gildir
+
+i {
+
+}// i
+
+}// span
+
+}// .v-list-item__subtitle
+
+}// .v-list-item__content
+
+}// .v-list-item
+
+.v-card__actions {
+ background rgba(skoli .4)
+ padding 0
+
+button.v-btn {
+
+span.v-btn__content {
+ color white
+ font-size 14px
+ text-transform none
+
+i {
+ color dark
+ font-size 18px
+ padding-right 2px
+}// i
+
+span {
+ color white
+ font-size 14px
+ text-transform none
+ margin-left 5px
+
+&.sund {
+ color yellow
+}// &.sund
+
+&.uti {
+ color green
+}// &.uti
+
+&.pontun {
+ color skoli
+}// &.pontun
+
+}// span
+
+}// span.v-btn__content
+
+}// button.v-btn
+
+}// .v-card__actions
+
+}// div
+
+}// .v-card
+
+}// .row
+
+}// .container
+
+}// .skolakort
+
+}// .kortfront
 
 }// .lenda

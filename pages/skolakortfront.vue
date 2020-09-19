@@ -1,15 +1,6 @@
 <template>
 
-  <div class="arskort">
-
-    <section>
-         <b-field grouped message="Leita að nafni?...">
-             <b-input placeholder="Leita að Árskorti..." expanded v-model="search"></b-input>
-             <p class="control">
-                 <button class="button is-primary"><v-icon>mdi-book-search-outline</v-icon></button>
-             </p>
-         </b-field>
-     </section>
+  <div class="skolakort">
 
      <v-container>
       <v-row no-gutters>
@@ -20,11 +11,11 @@
     outlined
   >
 
-    <v-col cols="12" sm="12">
+    <v-col cols="12" sm="12" v-if="post.status == 'pontun'">
 
     <v-list-item five-line>
       <v-list-item-content>
-        <div class="overline">Árskort</div>
+        <div class="overline">Skólakort <v-icon class="ml-16">mdi-clipboard-edit-outline</v-icon></div>
         <v-list-item-title class="headline mb-1">{{ post.nafn }}</v-list-item-title>
         <v-list-item-subtitle>
          <v-icon>mdi-home</v-icon> {{ post.heimili }} <br>
@@ -49,7 +40,11 @@
       <v-btn text>
        <v-icon>mdi-calendar-range</v-icon> {{ post.created_at | moment('timezone', 'Atlantic/Reykjavik', 'DD/MM/YYYY') }}
       </v-btn>
-      <v-btn text><v-icon class="ml-16">mdi-clipboard-edit-outline</v-icon></v-btn>
+      <v-btn text>
+        <span class="sund" v-if="post.status == 'sund'">Sundlaug</span>
+        <span class="uti" v-if="post.status == 'uti'">Korthafi</span>
+        <span class="pontun" v-if="post.status == 'pontun'">Í Pöntun</span>
+      </v-btn>
     </v-card-actions>
 
   </v-col>
@@ -59,7 +54,7 @@
      </v-row>
    </v-container>
 
-  </div><!-- .arskort -->
+  </div><!-- .skolakort -->
 
 </template>
 
@@ -102,7 +97,7 @@ filters: {
 },// filters
 
     async created() {
-    axios.get(`http://localhost:1337/arskorts?_sort=created_at:desc`)
+    axios.get(`http://localhost:1337/skolakorts?_limit=2&_sort=created_at:desc`)
     //axios.get(`https://sundlaug.herokuapp.com/klormalingars?_sort=created_at:desc`)
     .then(response => {
     this.posts = response.data

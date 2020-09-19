@@ -2,16 +2,11 @@
 
 <div class="arskortfront">
 
-    <v-container>
-      <v-row no-gutters>
-
   <v-card v-for="post in posts" :key="id"
     class="mx-auto"
     max-width="344"
     outlined
   >
-
-  <v-col cols="12" sm="12">
 
     <v-list-item five-line>
       <v-list-item-content>
@@ -43,12 +38,7 @@
       <v-btn text><v-icon class="ml-16">mdi-clipboard-edit-outline</v-icon></v-btn>
     </v-card-actions>
 
-  </v-col>
-
   </v-card>
-
-     </v-row>
-   </v-container>
 
 </div><!-- .arskortfront -->
 

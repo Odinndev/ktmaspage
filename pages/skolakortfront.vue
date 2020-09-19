@@ -2,16 +2,13 @@
 
   <div class="skolakort">
 
-      <v-container>
-      <v-row no-gutters>
-
-  <v-card v-for="post in filteredList" :key="id"
+  <v-card v-for="post in posts" :key="id"
     class="mx-auto"
     max-width="344"
     outlined
   >
 
-    <v-col cols="12" sm="12" v-if="post.status == 'pontun'">
+    <div v-if="post.status == 'pontun'">
 
     <v-list-item five-line>
       <v-list-item-content>
@@ -47,12 +44,11 @@
       </v-btn>
     </v-card-actions>
 
-  </v-col>
+    </div>
 
   </v-card>
 
-       </v-row>
-   </v-container>
+
 
   </div><!-- .skolakort -->
 
@@ -85,11 +81,7 @@ return {
 },// data
 
     computed: {
-    filteredList() {
-     return this.posts.filter(post => {
-     return post.nafn.toLowerCase().includes(this.search.toLowerCase())
-          })
-        }
+
     },// computed
 
 filters: {
@@ -97,7 +89,7 @@ filters: {
 },// filters
 
     async created() {
-    axios.get(`http://localhost:1337/skolakorts?_limit=2&_sort=created_at:desc`)
+    axios.get(`http://localhost:1337/skolakorts?_limit=100&_sort=created_at:desc`)
     //axios.get(`https://sundlaug.herokuapp.com/klormalingars?_sort=created_at:desc`)
     .then(response => {
     this.posts = response.data

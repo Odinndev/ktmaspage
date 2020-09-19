@@ -20,7 +20,7 @@
     outlined
   >
 
-    <v-col cols="6" sm="6">
+    <v-col cols="12" sm="12">
 
     <v-list-item five-line>
       <v-list-item-content>

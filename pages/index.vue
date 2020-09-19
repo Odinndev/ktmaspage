@@ -2,22 +2,39 @@
 
 <div class="lenda">
 
-  <v-container>
-    <v-row no-gutters>
+<klorfront />
 
-       <div class="kortfront uk-align-left">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+
+         <div class="kortfront">
 
          <skolakortfront />
+
+      </div><!-- .kortfront -->
+
+               <div class="kortfront">
 
          <arskortfront />
 
       </div><!-- .kortfront -->
 
-  <div class="matfront uk-align-left">
+  <div>
+     <p>test</p>
+  </div>    
+
+    <div>
+     <p>test</p>
+  </div>
+
+    <div>
+     <p>test</p>
+  </div>
+
+          <div class="matfront">
+
 
          <span v-for="post in posts">
 
-               <v-col cols="12" sm=12>
 
                <div class="bg-teal-100 border-t-4 border-blue-180 rounded-b text-teal-900 px-4 shadow-lg" role="alert">
                   
@@ -69,16 +86,14 @@
                      </div>
 
                   </div><!-- .flex -->
+                  
                </div><!-- .bg-teal-100 border-t-4 border-blue-180 rounded-b text-teal-900 px-4 shadow-lg -->
-            
-               </v-col>
 
             </span>
 
   </div><!-- .matfront -->
 
-        </v-row>
-         </v-container>
+  </div>
 
 </div><!-- .lenda -->
 
@@ -91,12 +106,14 @@ import { mapMutations } from 'vuex'
 import { NotificationProgrammatic as Notification } from 'buefy'
 import arskortfront from './arskortfront'
 import skolakortfront from './skolakortfront'
+import klorfront from './klorfront'
 
 export default {
 
 components: {
  arskortfront,
  skolakortfront,
+ klorfront,
 },
 
 data() {

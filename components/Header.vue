@@ -65,7 +65,7 @@
 
               <notifi />
 
-              <li><a href="#" class="uk-link-reset"><img class="uk-border-circle" width="20" height="20" v-bind:src="avatar" alt="">{{ username }}</a></li>
+              <li><a href="#" class="uk-link-reset"><v-icon size="16">mdi-account-box</v-icon>{{ username }}</a></li>
               <li><a href="#" @click="logout"><span uk-icon="icon: sign-out"></span>Útskrá</a></li>
           </ul>
 

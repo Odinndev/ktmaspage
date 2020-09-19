@@ -17,6 +17,8 @@
   <v-card v-for="post in filteredList" :key="id"
     class="mx-auto"
     max-width="344"
+    min-height="218"
+    max-height="218"
     outlined
   >
 

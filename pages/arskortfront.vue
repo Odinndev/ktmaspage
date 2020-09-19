@@ -5,12 +5,14 @@
   <v-card v-for="post in posts" :key="id"
     class="mx-auto"
     max-width="344"
+    min-height="218"
+    max-height="218"
     outlined
   >
 
     <v-list-item five-line>
       <v-list-item-content>
-        <div class="overline">Árskort</div>
+        <div class="overline">Árskort <v-icon class="ml-16">mdi-clipboard-edit-outline</v-icon></div>
         <v-list-item-title class="headline mb-1">{{ post.nafn }}</v-list-item-title>
         <v-list-item-subtitle>
          <v-icon>mdi-home</v-icon> {{ post.heimili }} <br>
@@ -35,7 +37,7 @@
       <v-btn text>
        <v-icon>mdi-calendar-range</v-icon> {{ post.created_at | moment('timezone', 'Atlantic/Reykjavik', 'DD/MM/YYYY') }}
       </v-btn>
-      <v-btn text><v-icon class="ml-16">mdi-clipboard-edit-outline</v-icon></v-btn>
+      <!-- <v-btn text><v-icon class="ml-16">mdi-clipboard-edit-outline</v-icon></v-btn> -->
     </v-card-actions>
 
   </v-card>

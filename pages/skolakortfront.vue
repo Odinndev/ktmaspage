@@ -12,7 +12,29 @@
 
     <v-list-item five-line>
       <v-list-item-content>
+
+        <a href="#modal-sections" uk-toggle>
         <div class="overline">Skólakort <v-icon class="ml-16">mdi-clipboard-edit-outline</v-icon></div>
+        </a>
+
+          <div id="modal-sections" uk-modal>
+              <div class="uk-modal-dialog">
+                  <button class="uk-modal-close-default" type="button" uk-close></button>
+                  <div class="uk-modal-header">
+                      <h2 class="uk-modal-title"><v-icon class="ml-16">mdi-clipboard-edit-outline</v-icon> Breyta Skólakorti</h2>
+                  </div>
+                  <div class="uk-modal-body">
+
+                  <form action=""></form>
+                  
+                  </div>
+                  <div class="uk-modal-footer uk-text-right">
+                      <button class="uk-button uk-button-default uk-modal-close" type="button">Hætta við</button>
+                      <button class="uk-button uk-button-primary" type="button">Vista breytingar</button>
+                  </div>
+              </div>
+          </div>
+
         <v-list-item-title class="headline mb-1">{{ post.nafn }}</v-list-item-title>
         <v-list-item-subtitle>
          <v-icon>mdi-home</v-icon> {{ post.heimili }} <br>

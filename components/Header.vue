@@ -40,8 +40,8 @@
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
                         <li class="uk-active"><a href="/nyttskolakort">+Nýtt Skólakort</a></li>
-                        <li><a href="/skolakortipontun">Í Pöntun</a></li>
                         <li><a href="/skolakort">Skoða Safn</a></li>
+                        <li><a href="/skolakortipontun">Í Pöntun</a></li>
                     </ul>
                 </div>
             </li>
@@ -49,7 +49,7 @@
                 <a href="#">Matur</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-active"><a href="/nymatarpontun">+ Matarpöntun</a></li>
+                        <li class="uk-active"><a href="/nymatarpontun">+Ný Matarpöntun</a></li>
                         <li><a href="/matarpantanir">Matarpantanir</a></li>
                     </ul>
                 </div>

@@ -1,12 +1,9 @@
-<template>  
-<div>
+<template>
 
-  <div class="uk-child-width-1-2@m uk-grid">
-      <div>
-          <div class="uk-card uk-card-default uk-card-small uk-card-body">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx5wHGi_YlFnM1Z5Oua8EF2PCvfS-iBJ9-mzxekFqdurE1mKhRUw&s" height="500" width="500" class="uk-align-center" alt="">
-          </div>
-      </div>
+<div class="signin">
+
+  <div class="uk-child-width-1-1@m uk-grid">
+    
       <div>
           <div class="uk-card uk-card-default uk-card-large uk-card-body">
 
@@ -45,19 +42,19 @@
                   </fieldset>
               </form>
 
-<!--                    <div class="uk-margin">
-                   <a href="https://sundlaug.herokuapp.com/connect/google/callback"><button style="background: #007ee5; color: white;" class="uk-button uk-width-1-1">Innskrá með <span class="timi" uk-icon="icon: google"></span>oogle</button></a>
-                  </div>
-
-                      <div class="uk-margin">
-                        <a href="http://localhost:1337/connect/google/callback"><button style="background: #007ee5; color: white;" class="uk-button uk-width-1-1">Nýskrá með <span class="timi" uk-icon="icon: google"></span>oogle</button></a>
-                      </div> -->
+              <!--<div class="uk-margin">
+                <a href="https://sundlaug.herokuapp.com/connect/google/callback"><button style="background: #007ee5; color: white;" class="uk-button uk-width-1-1">Innskrá með <span class="timi" uk-icon="icon: google"></span>oogle</button></a>
+                </div>
+              <div class="uk-margin">
+              <a href="http://localhost:1337/connect/google/callback"><button style="background: #007ee5; color: white;" class="uk-button uk-width-1-1">Nýskrá með <span class="timi" uk-icon="icon: google"></span>oogle</button></a>
+              </div> -->
 
           </div>
       </div>
   </div>
 
-</div>  
+</div><!-- .signin -->
+
 </template>
 
 <script>
@@ -87,7 +84,7 @@ export default {
         )
         this.loading = false
         this.setUser(response.user)
-        this.$router.push("/posts/lenda")
+        this.$router.push("/")
         Notification.open({
         message: 'Velkominn 😎',
         type: 'is-success',

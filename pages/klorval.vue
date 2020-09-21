@@ -1,22 +1,26 @@
 <template>
 
-<div class="valmoguleikar">
+<div class="klorval">
 
   <form @submit="formSubmit">
     <fieldset class="uk-fieldset">
 
      <v-container>
      <v-row no-gutters>
-           
-    
+
+        <!-- hiti /////////////////////////////////////////// -->   
+        <div class="hiti">
+
+         <h1 class="malinghiti" align="center"><dt class="name"><span>°C/</span>HITASTIG</dt></h1>  
+
         <div class="hitilaug uk-width-1-1">
          <v-col lg="12" cols="12">
         <dl class="uk-description-list">
-        <dt>Hiti Sundlug</dt>
+        <dt class="name">SUNDLAUG</dt>
         <dd>Normal 29.7°c <span>Max 33°c</span></dd>
        </dl>
         <b-field>
-          <b-numberinput min="26.0" type="number" step="0.1" v-model="hitilaug"></b-numberinput>
+          <b-numberinput min="26.0" type="number" step="0.1" v-model="hitisundlaug"></b-numberinput>
         </b-field>
         </v-col>
         </div><!-- .hitilaug -->
@@ -24,11 +28,11 @@
         <div class="hitikaldur uk-width-1-1">
         <v-col lg="12" cols="12">
        <dl class="uk-description-list">
-        <dt>Hiti Kaldur Pottur</dt>
+        <dt class="name">KALDUR POTTUR</dt>
         <dd>Normal 37.7°c <span>Max 39.4°c</span></dd>
        </dl>
         <b-field>
-          <b-numberinput min="30.0" type="number" step="0.1" v-model="hitikaldur"></b-numberinput>
+          <b-numberinput min="30.0" type="number" step="0.1" v-model="hitikaldurpottur"></b-numberinput>
         </b-field>
         </v-col>
         </div><!-- .hitikaldur -->
@@ -36,14 +40,149 @@
         <div class="hitiheitur uk-width-1-1">
         <v-col lg="12" cols="12">
         <dl class="uk-description-list">
-        <dt>Hiti Heitur Pottur</dt>
+        <dt class="name">HEITUR POTTUR</dt>
         <dd>Normal 40-42°c / <span>Max 45°c</span></dd>
        </dl>
         <b-field>
-          <b-numberinput min="38.0" type="number" step="0.1" v-model="hitiheitur"></b-numberinput>
+          <b-numberinput min="38.0" type="number" step="0.1" v-model="hitiheiturpottur"></b-numberinput>
         </b-field>
         </v-col>
         </div><!-- .hitiheitur -->
+
+        </div><!-- .hiti -->
+
+
+        <!-- klormalingar /////////////////////////////////////////// -->
+        <div class="klormalingar">
+
+        <h1 class="malinglaug" align="center"><dt class="name"><span>KLÓRMÆLING</span> SUNDLAUG</dt></h1> 
+
+        <!-- sundlaug ///////////////////////////////// -->
+        <div class="klorlaug uk-width-1-1">
+         <v-col lg="12" cols="12">
+        <dl class="uk-description-list">
+        <dd>Normal 1.50 <span>Max 2.0+</span></dd>
+       </dl>
+
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+        
+        <div>
+        <dt class="klorstod" align="center">Klórstöð</dt>  
+        <b-field>
+          <b-numberinput size="is-small" min="1.0" type="number" step="0.1" v-model="malingsundlaug"></b-numberinput>
+        </b-field>
+        </div>
+
+        <div>
+        <dt class="ker" align="center">Handmæling</dt> 
+        <b-field>
+          <b-numberinput size="is-small" min="1.0" type="number" step="0.1" v-model="testsundlaug"></b-numberinput>
+        </b-field>
+        </div>
+
+        </div>
+
+        </v-col>
+        </div><!-- .klorlaug -->
+
+        <div class="leidlaug uk-width-1-1">
+        <v-col lg="12" cols="12">
+        <dl class="uk-description-list">
+        <dt>Leiðrétting</dt>
+        <dd>Normal 1.50 / <span>Max 2.0+</span></dd>
+       </dl>
+        <b-field>
+          <input class="uk-input" type="number" v-model="utkomasundlaug"></p>
+        </b-field>
+        </v-col>
+        </div><!-- .leidlaug -->
+
+        <h1 class="malingkaldur" align="center"><dt class="name"><span>KLÓRMÆLING</span> KALDUR POTTUR</dt></h1> 
+
+        <!-- kaldur pottur ///////////////////////////// -->
+        <div class="klorkaldur uk-width-1-1">
+         <v-col lg="12" cols="12">
+        <dl class="uk-description-list">
+        <dd>Normal 2.40 <span>Max 3.0+</span></dd>
+       </dl>
+
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+        
+        <div>
+        <dt class="klorstod" align="center">Klórstöð</dt>
+        <b-field>
+          <b-numberinput size="is-small" min="1.0" type="number" step="0.1" v-model="malingkaldurpottur"></b-numberinput>
+        </b-field>
+        </div>
+
+        <div>
+        <dt class="ker" align="center">Handmæling</dt> 
+        <b-field>
+          <b-numberinput size="is-small" min="1.0" type="number" step="0.1" v-model="testkaldurpottur"></b-numberinput>
+        </b-field>
+        </div>
+
+        </div>
+
+        </v-col>
+        </div><!-- .klorkaldur -->
+
+        <div class="leidkaldur uk-width-1-1">
+        <v-col lg="12" cols="12">
+        <dl class="uk-description-list">
+        <dt>Leiðrétting</dt>
+        <dd>Normal 1.50 / <span>Max 2.0+</span></dd>
+       </dl>
+        <b-field>
+          <input class="uk-input" type="number" v-model="utkomakaldurpottur"></p>
+        </b-field>
+        </v-col>
+        </div><!-- .leidkaldur -->
+
+        <h1 class="malingheitur" align="center"><dt class="name"><span>KLÓRMÆLING</span> HEITUR POTTUR</dt></h1> 
+
+        <!-- heitur pottur ///////////////////////////// -->
+        <div class="klorheitur uk-width-1-1">
+         <v-col lg="12" cols="12">
+        <dl class="uk-description-list">
+        <dt class="name">Heitur Pottur</dt>
+        <dd>Normal 2.50 <span>Max 3.0+</span></dd>
+       </dl>
+
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+        
+        <div>
+        <dt class="klorstod" align="center">Klórstöð</dt>  
+        <b-field>
+          <b-numberinput size="is-small" min="1.0" type="number" step="0.1" v-model="malingheiturpottur"></b-numberinput>
+        </b-field>
+        </div>
+
+        <div>
+        <dt class="ker" align="center">Handmæling</dt> 
+        <b-field>
+          <b-numberinput size="is-small" min="1.0" type="number" step="0.1" v-model="testheiturpottur"></b-numberinput>
+        </b-field>
+        </div>
+
+        </div>
+
+        </v-col>
+        </div><!-- .klorheitur -->
+
+        <div class="leidheitur uk-width-1-1">
+        <v-col lg="12" cols="12">
+        <dl class="uk-description-list">
+        <dt>Leiðrétting</dt>
+        <dd>Normal 2.50 / <span>Max 3.0+</span></dd>
+       </dl>
+        <b-field>
+          <input class="uk-input" type="number" v-model="utkomaheiturpottur"></p>
+        </b-field>
+        </v-col>
+        </div><!-- .leidheitur -->
+
+        </div><!-- .klormalingar -->
 
         </v-row>
      </v-container>
@@ -81,7 +220,7 @@
         </div>
     </div> -->
 
-</div><!-- .valmoguleikar -->
+</div><!-- .klorval -->
 
 </template>
 
@@ -101,9 +240,9 @@ data () {
 
     return {
      posts: [],
-     hitilaug: null,
-     hitikaldur: null,
-     hitiheitur: null,
+     hitisundlaug: null,
+     hitikaldurpottur: null,
+     hitiheiturpottur: null,
      malingsundlaug: null,
      malingkaldurpottur: null,
      malingheiturpottur: null,
@@ -117,8 +256,6 @@ data () {
      klormagn: null,
      tokamotiklor: null,
      treifklornema: null,
-     mynd: "",
-     id: "",
      starfsmadur: "",
      veljadate: "",
      output: '',
@@ -174,8 +311,8 @@ data () {
             async formSubmit(e) {
                 e.preventDefault();
                 let currentObj = this;
-                //axios.post('http://localhost:1337/klormalingars', {
-                axios.post('https://sundlaug.herokuapp.com/klormalingars', {
+                axios.post('http://localhost:1337/klors', {
+                //axios.post('https://sundlaug.herokuapp.com/klormalingars', {
                     hitisundlaug: this.hitilaug,
                     hitikaldurpottur: this.hitikaldurr,
                     hitiheiturpottur: this.hitiheitur,

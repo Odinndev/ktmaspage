@@ -11,7 +11,7 @@
         <!-- hiti /////////////////////////////////////////// -->   
         <div class="hiti">
 
-         <h1 class="malinghiti" align="center"><dt class="name"><span>°C/</span>HITASTIG</dt></h1>  
+         <h1 class="malinghiti" align="center"><dt class="name"><span><span style="color:#11c3fe;">°</span>C/</span>HITASTIG</dt></h1>  
 
         <div class="hitiker uk-width-1-1">
          <v-col lg="12" cols="12">
@@ -199,6 +199,40 @@
         </div><!-- .leidheitur -->
 
         </div><!-- .klormalingar -->
+
+        <h1 class="minnismidi" align="center"><dt class="name">ATHUGA<span>SEMD</span></dt></h1>  
+
+          <div class="minnismidi">
+          <b-field type="is-info">
+            <b-input size="is-large" maxlength="200" type="textarea"></b-input>
+          </b-field>
+        </div><!-- .minnismidi -->
+
+        <h1 class="klormagn" align="center"><dt class="name">KLÓR<span>MAGN</span></dt></h1>
+
+        <div class="klormagn">
+          <b-field type="is-info">
+            <b-input size="is-medium" placeholder="Klórmagn/L"></b-input>
+        </b-field>
+        </div><!-- .klormagn -->
+
+        <h1 class="starfsmadur" align="center"><dt class="name">STARFS<span>MAÐUR</span></dt></h1>
+
+        <div class="starfsmadur">
+          <b-field>
+            <b-select size="is-medium" placeholder="Starfsmaður" icon="account">
+                <optgroup label="Black Sails">
+                <option value="odinn">Óðinn</option>
+                <option value="robert">Róbert</option>
+                <option value="oli">Óli</option>
+                <option value="torvald">Þorvaldur</option>
+                <option value="steina">Steina</option>
+                <option value="halla">Halla</option>
+                <option value="ragna">Ragna</option>
+                </optgroup>
+            </b-select>
+        </b-field>
+        </div><!-- .starfsmadur -->
 
         </v-row>
      </v-container>

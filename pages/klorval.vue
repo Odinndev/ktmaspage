@@ -5,15 +5,14 @@
   <form @submit="formSubmit">
     <fieldset class="uk-fieldset">
 
-     <v-container>
-     <v-row no-gutters>
+      <div class="grid sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 grid-rows-3 gap-0">
 
         <!-- hiti /////////////////////////////////////////// -->   
         <div class="hiti">
 
          <h1 class="malinghiti" align="center"><dt class="name"><span><span style="color:#11c3fe;">°</span>C/</span>HITASTIG</dt></h1>  
 
-        <div class="hitiker uk-width-1-1">
+        <div class="hitiker">
          <v-col lg="12" cols="12">
 
         <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">
@@ -57,7 +56,7 @@
         <h1 class="malinglaug" align="center"><dt class="name"><span>KLÓRMÆLING</span> SUNDLAUG</dt></h1> 
 
         <!-- sundlaug ///////////////////////////////// -->
-        <div class="klorlaug uk-width-1-1">
+        <div class="klorlaug">
          <v-col lg="12" cols="12">
         <dl class="uk-description-list">
         <dt class="name">Normal 1.50 <span>Max 2.0+</span></dt>
@@ -84,7 +83,7 @@
         </v-col>
         </div><!-- .klorlaug -->
 
-        <div class="leidlaug uk-width-1-1">
+        <div class="leidlaug">
         <v-col lg="12" cols="12">
 
         <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">  
@@ -105,7 +104,7 @@
         <h1 class="malingkaldur" align="center"><dt class="name"><span>KLÓRMÆLING</span> KALDUR POTTUR</dt></h1> 
 
         <!-- kaldur pottur ///////////////////////////// -->
-        <div class="klorkaldur uk-width-1-1">
+        <div class="klorkaldur">
          <v-col lg="12" cols="12">
         <dl class="uk-description-list">
         <dt class="name">Normal 2.40 <span>Max 3.0+</span></dt>
@@ -132,7 +131,7 @@
         </v-col>
         </div><!-- .klorkaldur -->
 
-        <div class="leidkaldur uk-width-1-1">
+        <div class="leidkaldur">
         <v-col lg="12" cols="12">
         
         <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
@@ -153,7 +152,7 @@
         <h1 class="malingheitur" align="center"><dt class="name"><span>KLÓRMÆLING</span> HEITUR POTTUR</dt></h1> 
 
         <!-- heitur pottur ///////////////////////////// -->
-        <div class="klorheitur uk-width-1-1">
+        <div class="klorheitur">
          <v-col lg="12" cols="12">
         <dl class="uk-description-list">
         <dt class="name">Normal 2.50 <span>Max 3.0+</span></dt>
@@ -180,7 +179,7 @@
         </v-col>
         </div><!-- .klorheitur -->
 
-        <div class="leidheitur uk-width-1-1">
+        <div class="leidheitur">
         <v-col lg="12" cols="12">
 
         <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
@@ -200,49 +199,61 @@
 
         </div><!-- .klormalingar -->
 
-        <h1 class="minnismidi" align="center"><dt class="name">ATHUGA<span>SEMD</span></dt></h1>  
+          <div class="minnisoginfo">
+
+          <div class="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">  
 
           <div class="minnismidi">
+
+          <h1 class="minnismidi" align="center"><dt class="name">ATHUGA<span>SEMD</span></dt></h1>  
+
           <b-field type="is-info">
-            <b-input size="is-large" maxlength="200" type="textarea"></b-input>
+            <b-input size="is-medium" maxlength="200" type="textarea"></b-input>
           </b-field>
         </div><!-- .minnismidi -->
 
-        <h1 class="klormagn" align="center"><dt class="name">KLÓR<span>MAGN</span></dt></h1>
+          <div class="klormagn">
+          <h1 class="klormagn" align="center"><dt class="name">KLÓR<span>MAGN</span></dt></h1>
 
-        <div class="klormagn">
           <b-field type="is-info">
             <b-input size="is-medium" placeholder="Klórmagn/L"></b-input>
         </b-field>
         </div><!-- .klormagn -->
 
-        <h1 class="starfsmadur" align="center"><dt class="name">STARFS<span>MAÐUR</span></dt></h1>
+        </div><!-- grid -->
+
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
 
         <div class="starfsmadur">
+
+          <h1 class="starfsmadur" align="center"><dt class="name">STARFS<span>MAÐUR</span></dt></h1>
+
           <b-field>
             <b-select size="is-medium" placeholder="Starfsmaður" icon="account">
-                <optgroup label="Black Sails">
-                <option value="odinn">Óðinn</option>
-                <option value="robert">Róbert</option>
-                <option value="oli">Óli</option>
-                <option value="torvald">Þorvaldur</option>
-                <option value="steina">Steina</option>
-                <option value="halla">Halla</option>
-                <option value="ragna">Ragna</option>
-                </optgroup>
+                <option class="odinn" value="odinn">Óðinn</option>
+                <option class="robert" value="robert">Róbert</option>
+                <option class="oli" value="oli">Óli</option>
+                <option class="torvald" value="torvald">Þorvaldur</option>
+                <option class="steina" value="steina">Steina</option>
+                <option class="halla" value="halla">Halla</option>
+                <option class="ragna" value="ragna">Ragna</option>
             </b-select>
         </b-field>
         </div><!-- .starfsmadur -->
 
-        </v-row>
-     </v-container>
+          <button class="uk-button uk-button-secondary uk-width-1-1 right">vista</button>
+          <pre>
+          {{output}}
+          </pre>
+
+        </div><!-- grid -->
+
+        </div><!-- .minnisoginfo -->
   
+</div><!-- grid -->
+
     </fieldset>
-    
-    <button class="uk-button uk-button-secondary uk-width-1-1 right">vista</button>
-    <pre>
-    {{output}}
-    </pre>
+
 </form>
 
 <!-- <div class="container">
@@ -320,32 +331,33 @@ data () {
   },
  
  computed: {
-  total: function() {
+  utkomasundlaug: function() {
       let calculatedTotal = this.malingsundlaug - this.testsundlaug;
       this.utkomasundlaug_total = calculatedTotal
-      return calculatedTotal;
+      return calculatedTotal / '2';
     },
-    total: function() {
+
+    utkomakaldurpottur: function() {
       let calculatedTotal = this.malingkaldurpottur - this.testkaldurpottur;
       this.utkomakaldurpottur_total = calculatedTotal
-      
-      return calculatedTotal;
+      return calculatedTotal / '2';
     },
-    total: function() {
+
+    utkomaheiturpottur: function() {
       let calculatedTotal = this.malingheiturpottur - this.testheiturpottur;
       this.utkomaheiturpottur_total = calculatedTotal
-      
-      return calculatedTotal;
+      return calculatedTotal / '2';
     },
-    utkomasundlaug() {
-      return this.malingsundlaug - this.testsundlaug;
-    },
-    utkomakaldurpottur() {
-      return this.malingkaldurpottur - this.testkaldurpottur;
-    },
-    utkomaheiturpottur() {
-      return this.malingheiturpottur - this.testheiturpottur;
-    },
+    
+    // utkomasundlaug() {
+    //   return this.malingsundlaug - this.testsundlaug;
+    // },
+    // utkomakaldurpottur() {
+    //   return this.malingkaldurpottur - this.testkaldurpottur;
+    // },
+    // utkomaheiturpottur() {
+    //   return this.malingheiturpottur - this.testheiturpottur;
+    // },
   },
 
 /*    computed: {

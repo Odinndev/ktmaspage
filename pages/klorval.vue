@@ -61,7 +61,7 @@
         <div class="klorlaug uk-width-1-1">
          <v-col lg="12" cols="12">
         <dl class="uk-description-list">
-        <dd>Normal 1.50 <span>Max 2.0+</span></dd>
+        <dt class="name">Normal 1.50 <span>Max 2.0+</span></dt>
        </dl>
 
         <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
@@ -87,13 +87,19 @@
 
         <div class="leidlaug uk-width-1-1">
         <v-col lg="12" cols="12">
+
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">  
+
         <dl class="uk-description-list">
-        <dt>Leiðrétting</dt>
-        <dd>Normal 1.50 / <span>Max 2.0+</span></dd>
+        <dt class="name">Leiðrétting</dt>
        </dl>
+
         <b-field>
           <input class="uk-input" type="number" v-model="utkomasundlaug"></p>
         </b-field>
+        
+        </div><!-- grid -->
+
         </v-col>
         </div><!-- .leidlaug -->
 
@@ -103,7 +109,7 @@
         <div class="klorkaldur uk-width-1-1">
          <v-col lg="12" cols="12">
         <dl class="uk-description-list">
-        <dd>Normal 2.40 <span>Max 3.0+</span></dd>
+        <dt class="name">Normal 2.40 <span>Max 3.0+</span></dt>
        </dl>
 
         <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
@@ -129,13 +135,19 @@
 
         <div class="leidkaldur uk-width-1-1">
         <v-col lg="12" cols="12">
+        
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+
         <dl class="uk-description-list">
-        <dt>Leiðrétting</dt>
-        <dd>Normal 1.50 / <span>Max 2.0+</span></dd>
+        <dt class="name">Leiðrétting</dt>
        </dl>
+
         <b-field>
           <input class="uk-input" type="number" v-model="utkomakaldurpottur"></p>
         </b-field>
+
+        </div><!-- grid -->
+
         </v-col>
         </div><!-- .leidkaldur -->
 
@@ -145,8 +157,7 @@
         <div class="klorheitur uk-width-1-1">
          <v-col lg="12" cols="12">
         <dl class="uk-description-list">
-        <dt class="name">Heitur Pottur</dt>
-        <dd>Normal 2.50 <span>Max 3.0+</span></dd>
+        <dt class="name">Normal 2.50 <span>Max 3.0+</span></dt>
        </dl>
 
         <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
@@ -172,13 +183,19 @@
 
         <div class="leidheitur uk-width-1-1">
         <v-col lg="12" cols="12">
+
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+
         <dl class="uk-description-list">
-        <dt>Leiðrétting</dt>
-        <dd>Normal 2.50 / <span>Max 3.0+</span></dd>
+        <dt class="name">Leiðrétting</dt>
        </dl>
+
         <b-field>
           <input class="uk-input" type="number" v-model="utkomaheiturpottur"></p>
         </b-field>
+
+        </div><!-- grid -->
+
         </v-col>
         </div><!-- .leidheitur -->
 

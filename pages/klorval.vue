@@ -13,41 +13,40 @@
 
          <h1 class="malinghiti" align="center"><dt class="name"><span>°C/</span>HITASTIG</dt></h1>  
 
-        <div class="hitilaug uk-width-1-1">
+        <div class="hitiker uk-width-1-1">
          <v-col lg="12" cols="12">
-        <dl class="uk-description-list">
-        <dt class="name">SUNDLAUG</dt>
-        <dd>Normal 29.7°c <span>Max 33°c</span></dd>
-       </dl>
-        <b-field>
-          <b-numberinput min="26.0" type="number" step="0.1" v-model="hitisundlaug"></b-numberinput>
-        </b-field>
-        </v-col>
-        </div><!-- .hitilaug -->
 
-        <div class="hitikaldur uk-width-1-1">
-        <v-col lg="12" cols="12">
-       <dl class="uk-description-list">
-        <dt class="name">KALDUR POTTUR</dt>
-        <dd>Normal 37.7°c <span>Max 39.4°c</span></dd>
-       </dl>
+        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">
+        
+        <div>
+        <dt class="laug" align="center">SUNDLAUG</dt>  
         <b-field>
-          <b-numberinput min="30.0" type="number" step="0.1" v-model="hitikaldurpottur"></b-numberinput>
+          <b-numberinput size="is-small" min="1.0" type="number" step="0.1" v-model="hitisundlaug"></b-numberinput>
         </b-field>
-        </v-col>
-        </div><!-- .hitikaldur -->
+        </div>
 
-        <div class="hitiheitur uk-width-1-1">
-        <v-col lg="12" cols="12">
-        <dl class="uk-description-list">
-        <dt class="name">HEITUR POTTUR</dt>
-        <dd>Normal 40-42°c / <span>Max 45°c</span></dd>
-       </dl>
+        </div><!-- grid -->
+
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+        
+        <div>
+        <dt class="kaldur" align="center">KALDUR POTTUR</dt>  
         <b-field>
-          <b-numberinput min="38.0" type="number" step="0.1" v-model="hitiheiturpottur"></b-numberinput>
+          <b-numberinput size="is-small" min="1.0" type="number" step="0.1" v-model="hitikaldurpottur"></b-numberinput>
         </b-field>
+        </div>
+
+        <div>
+        <dt class="heitur" align="center">HEITUR POTTUR</dt> 
+        <b-field>
+          <b-numberinput size="is-small" min="1.0" type="number" step="0.1" v-model="hitiheiturpottur"></b-numberinput>
+        </b-field>
+        </div>
+
+        </div><!-- grid -->
+
         </v-col>
-        </div><!-- .hitiheitur -->
+        </div><!-- .hitiker -->
 
         </div><!-- .hiti -->
 
@@ -80,7 +79,7 @@
         </b-field>
         </div>
 
-        </div>
+        </div><!-- grid -->
 
         </v-col>
         </div><!-- .klorlaug -->
@@ -176,7 +175,7 @@
         </b-field>
         </div>
 
-        </div>
+        </div><!-- grid -->
 
         </v-col>
         </div><!-- .klorheitur -->

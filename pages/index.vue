@@ -4,7 +4,7 @@
 
 <klorfront />
 
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
 
          <div class="kortfront">
 
@@ -19,12 +19,8 @@
       </div><!-- .kortfront -->
 
   <div>
-     <p>test</p>
+     <tilk />
   </div>    
-
-    <div>
-     <p>test</p>
-  </div>
 
     <div>
      <p>test</p>
@@ -223,6 +219,7 @@ import { NotificationProgrammatic as Notification } from 'buefy'
 import arskortfront from './arskortfront'
 import skolakortfront from './skolakortfront'
 import klorfront from './klorfront'
+import tilk from './tilk'
 
 export default {
 
@@ -230,6 +227,7 @@ components: {
  arskortfront,
  skolakortfront,
  klorfront,
+ tilk,
 },
 
 data() {

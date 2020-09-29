@@ -128,7 +128,7 @@ data () {
 
    // Pushes posts to the server when called.
     async created() {
-    axios.get(`http://localhost:1337/klors?_sort=created_at:desc`)
+    axios.get(`http://localhost:1337/klors?_limit=1&_sort=created_at:desc`)
     //axios.get(`https://sundlaug.herokuapp.com/klormalingars?_sort=created_at:desc`)
     .then(response => {
     this.posts = response.data

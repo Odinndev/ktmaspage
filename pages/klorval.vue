@@ -20,7 +20,7 @@
         <div>
         <dt class="laug" align="center">SUNDLAUG</dt>  
         <b-field>
-          <b-numberinput size="is-small" min="1.0" type="number" step="0.1" v-model="hitisundlaug"></b-numberinput>
+          <b-numberinput size="is-small" min="26.0" type="number" step="0.1" v-model="hitisundlaug"></b-numberinput>
         </b-field>
         </div>
 
@@ -31,14 +31,14 @@
         <div>
         <dt class="kaldur" align="center">KALDUR POTTUR</dt>  
         <b-field>
-          <b-numberinput size="is-small" min="1.0" type="number" step="0.1" v-model="hitikaldurpottur"></b-numberinput>
+          <b-numberinput size="is-small" min="36.0" type="number" step="0.1" v-model="hitikaldurpottur"></b-numberinput>
         </b-field>
         </div>
 
         <div>
         <dt class="heitur" align="center">HEITUR POTTUR</dt> 
         <b-field>
-          <b-numberinput size="is-small" min="1.0" type="number" step="0.1" v-model="hitiheiturpottur"></b-numberinput>
+          <b-numberinput size="is-small" min="36.0" type="number" step="0.1" v-model="hitiheiturpottur"></b-numberinput>
         </b-field>
         </div>
 
@@ -93,7 +93,7 @@
        </dl>
 
         <b-field>
-          <input class="uk-input" type="number" v-model="utkomasundlaug"></p>
+          <input  class="uk-input" type="text" v-model.trim="utkomasundlaug"></p>
         </b-field>
         
         </div><!-- grid -->
@@ -141,7 +141,7 @@
        </dl>
 
         <b-field>
-          <input class="uk-input" type="number" v-model="utkomakaldurpottur"></p>
+          <input class="uk-input" type="text" v-model="utkomakaldurpottur"></p>
         </b-field>
 
         </div><!-- grid -->
@@ -189,7 +189,7 @@
        </dl>
 
         <b-field>
-          <input class="uk-input" type="number" v-model="utkomaheiturpottur"></p>
+          <input class="uk-input" type="text" v-model="utkomaheiturpottur"></p>
         </b-field>
 
         </div><!-- grid -->
@@ -208,7 +208,7 @@
           <h1 class="minnismidi" align="center"><dt class="name">ATHUGA<span>SEMD</span></dt></h1>  
 
           <b-field type="is-info">
-            <b-input size="is-medium" maxlength="200" type="textarea"></b-input>
+            <b-input v-model="minnismidi" size="is-medium" maxlength="200" type="textarea"></b-input>
           </b-field>
         </div><!-- .minnismidi -->
 
@@ -216,7 +216,7 @@
           <h1 class="klormagn" align="center"><dt class="name">KLÓR<span>MAGN</span></dt></h1>
 
           <b-field type="is-info">
-            <b-input size="is-medium" placeholder="Klórmagn/L"></b-input>
+            <b-input v-model="klormagn" placeholder="Klórmagn/L"></b-input>
         </b-field>
         </div><!-- .klormagn -->
 
@@ -229,7 +229,7 @@
           <h1 class="starfsmadur" align="center"><dt class="name">STARFS<span>MAÐUR</span></dt></h1>
 
           <b-field>
-            <b-select size="is-medium" placeholder="Starfsmaður" icon="account">
+            <b-select v-model="starfsmadur" size="is-medium" placeholder="Starfsmaður" icon="account">
                 <option class="odinn" value="odinn">Óðinn</option>
                 <option class="robert" value="robert">Róbert</option>
                 <option class="oli" value="oli">Óli</option>
@@ -241,12 +241,17 @@
         </b-field>
         </div><!-- .starfsmadur -->
 
-          <button class="uk-button uk-button-secondary uk-width-1-1 right">vista</button>
+        <button class="uk-button uk-button-secondary uk-width-1-1 right">vista</button>
+
+        </div><!-- grid -->
+
+          <div class="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">
+
           <pre>
           {{output}}
           </pre>
 
-        </div><!-- grid -->
+          </div><!-- grid -->
 
         </div><!-- .minnisoginfo -->
   
@@ -331,6 +336,12 @@ data () {
   },
  
  computed: {
+  // Set your username thanks to your getter
+  username() {
+    return this.$store.getters['auth/username']
+  },
+  
+  // reiknivel fyrir klorinn
   utkomasundlaug: function() {
       let calculatedTotal = this.malingsundlaug - this.testsundlaug;
       this.utkomasundlaug_total = calculatedTotal
@@ -348,7 +359,7 @@ data () {
       this.utkomaheiturpottur_total = calculatedTotal
       return calculatedTotal / '2';
     },
-    
+
     // utkomasundlaug() {
     //   return this.malingsundlaug - this.testsundlaug;
     // },

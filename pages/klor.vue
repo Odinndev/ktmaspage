@@ -1,226 +1,230 @@
 <template>
 
-<div class="valmoguleikar">
+  <div class="data">
 
-  <form @submit="formSubmit">
-    <fieldset class="uk-fieldset">
+   <v-data-table
+   dense
+   :items="posts"
+   :headers="headers"
+   :single-expand="singleExpand"
+   :expanded.sync="expanded"
+   show-expand
+   :search="search"
+    :footer-props="{
+    'items-per-page-options': [10, 20, 50, 100, -1],
+    }"
+   :items-per-page-all-text="itemsPerPageAllText"
+   :items-per-page="10"
+   :options.sync="pagination"
+   >
 
-     <v-container>
-     <v-row no-gutters>
-           
-    
-        <div class="hitilaug uk-width-1-1">
-         <v-col lg="12" cols="12">
-        <dl class="uk-description-list">
-        <dt>Hiti Sundlug</dt>
-        <dd>Normal 29.7°c <span>Max 33°c</span></dd>
-       </dl>
-        <b-field>
-          <b-numberinput min="26.0" type="number" step="0.1" v-model="hitilaug"></b-numberinput>
-        </b-field>
-        </v-col>
-        </div><!-- .hitilaug -->
+   <template v-slot:top>
+         <v-col offset-lg="3" :lg="6" :sm="12"><v-text-field v-model="search" label="Leita... ensk orð t.d odinn - robert.. tími = 06:50.." class="mx-4"></v-text-field></v-col>
+      </template>
 
-        <div class="hitikaldur uk-width-1-1">
-        <v-col lg="12" cols="12">
-       <dl class="uk-description-list">
-        <dt>Hiti Kaldur Pottur</dt>
-        <dd>Normal 37.7°c <span>Max 39.4°c</span></dd>
-       </dl>
-        <b-field>
-          <b-numberinput min="30.0" type="number" step="0.1" v-model="hitikaldur"></b-numberinput>
-        </b-field>
-        </v-col>
-        </div><!-- .hitikaldur -->
+   <template #item.created_at="{item}">
+     <time><span class="date">{{ item.created_at | moment('DD') }}</span>    
+     <span class="month">{{ item.created_at | moment('MMM') }}</span>
+     <span class="dag">{{ item.created_at | moment('timezone', 'Atlantic/Reykjavik', 'dddd') }}</span> 
+     <span class="timi" uk-icon="icon: clock"></span><span class="time">{{ item.created_at | moment("H:mm") }}</span>
+     </time>
+   </template>
 
-        <div class="hitiheitur uk-width-1-1">
-        <v-col lg="12" cols="12">
-        <dl class="uk-description-list">
-        <dt>Hiti Heitur Pottur</dt>
-        <dd>Normal 40-42°c / <span>Max 45°c</span></dd>
-       </dl>
-        <b-field>
-          <b-numberinput min="38.0" type="number" step="0.1" v-model="hitiheitur"></b-numberinput>
-        </b-field>
-        </v-col>
-        </div><!-- .hitiheitur -->
+   <template #item.starfsmadur="{item}">
 
-        </v-row>
-     </v-container>
-  
-    </fieldset>
-    
-    <button class="uk-button uk-button-secondary uk-width-1-1 right">vista</button>
-    <pre>
-    {{output}}
-    </pre>
-</form>
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
 
-<!-- <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Vue Axios Post - ItSolutionStuff.com</div>
-    
-                    <div class="card-body">
-                        <form @submit="formSubmit">
-                        <strong>Hiti Sundlaug</strong>
-                        <input type="text" class="form-control" v-model="hitisundlaug">
-                        <strong>Hiti kaldur pottur:</strong>
-                        <textarea class="form-control" v-model="hitikaldurpottur"></textarea>
-    
-                        <button class="btn btn-success">Submit</button>
-                        </form>
-                        <strong>Output:</strong>
-                        <pre>
-                        {{output}}
-                        </pre>
-                    </div>
-                </div>
+             <div class="uk-width-auto" v-if="item.starfsmadur == 'odinn'">
+                <img class="uk-border-circle" width="20" height="20" src="https://lh3.googleusercontent.com/a-/AAuE7mB4dRHKqhaTxYA9CawE2YOf7Scvb5_EEFGola1SGEo=s96-cc">
             </div>
-        </div>
-    </div> -->
+            <div class="uk-width-auto" v-if="item.starfsmadur == 'robert'">
+                <img class="uk-border-circle" width="20" height="20" src="https://scontent.frkv2-1.fna.fbcdn.net/v/t31.0-1/c17.0.100.100a/p100x100/1493444_1377246689198452_1488600122_o.jpg?_nc_cat=107&_nc_oc=AQlyOFG7uDQGIEDIuRPW08mhTNn5Uo9ALaD9Fi1gB9nPgo2ulLEIPIT-D5WkraZm09Y&_nc_ht=scontent.frkv2-1.fna&oh=34aca7f1a20401b84d96854885872a4d&oe=5E555B33">
+            </div>
+            <div class="uk-width-auto" v-if="item.starfsmadur == 'oli'">
+                <img class="uk-border-circle" width="20" height="20" src="https://scontent.frkv2-1.fna.fbcdn.net/v/t1.0-1/p100x100/54521146_10156401125097602_6650388366841872384_n.jpg?_nc_cat=105&_nc_oc=AQnYWEC6NV8s7ACHSfU4JVkypXCg7eKE0JAl5a8GWm1aCoQg5wGw1WrPsy09kgd8SOY&_nc_ht=scontent.frkv2-1.fna&oh=5ae5d74131a5e531601506455a70fb5a&oe=5E84D0F1">
+            </div>
+            <div class="uk-width-auto" v-if="item.starfsmadur == 'torvald'">
+                <img class="uk-border-circle" width="20" height="20" src="https://scontent.frkv2-1.fna.fbcdn.net/v/t1.0-1/p100x100/12998769_10206297823309072_533707040792698881_n.jpg?_nc_cat=110&_nc_oc=AQnqczaJAHhFgxRvyopVA_ZonW81JKntg6F3wSl4YXSPPo7uFbyz-Xqwnrlmc6wjquE&_nc_ht=scontent.frkv2-1.fna&oh=9341c777686b46d4a45b30399c6eb29f&oe=5E4DEC99">
+            </div>
+            <div class="uk-width-auto" v-if="item.starfsmadur == 'steina'">
+                <img class="uk-border-circle" width="20" height="20" src="https://scontent.frkv2-1.fna.fbcdn.net/v/t1.0-1/p100x100/73294654_10214430438331501_7842106633156034560_o.jpg?_nc_cat=101&_nc_oc=AQliQ6awQus2jaeErc0N0FqK7BsTpzFJ0qPy9XcBFh4V_W20i84mpKVfpha_OUGgx5Y&_nc_ht=scontent.frkv2-1.fna&oh=a7c8de4647633f7cfb33cad2f9a02c6f&oe=5E5303E9">
+            </div>
+            <div class="uk-width-auto" v-if="item.starfsmadur == 'halla'">
+                <img class="uk-border-circle" width="20" height="20" src="https://scontent.frkv2-1.fna.fbcdn.net/v/t1.0-1/p100x100/67403435_10157252483601832_2675199781374001152_n.jpg?_nc_cat=100&_nc_oc=AQmZJRkCTr-Gl0xlmGQHiQ95eLh9p-iNp-I3TTS6fZYeKSPgeF-oOaetEKOjfXWnE2U&_nc_ht=scontent.frkv2-1.fna&oh=fd81d3f3046cdbbe58b55488f80fdada&oe=5E58467E">
+            </div>
+            <div class="uk-width-auto" v-if="item.starfsmadur == 'ragna'">
+                <img class="uk-border-circle" width="20" height="20" src="https://scontent.frkv2-1.fna.fbcdn.net/v/t31.0-1/p100x100/13613184_10205990141146999_3445103564979179267_o.jpg?_nc_cat=108&_nc_oc=AQk71-ivWS1NpHRU6fRPzFFU06a-VxudBffqnKIkJSM1Squnqi-d0tWkC_YYr5FRHqk&_nc_ht=scontent.frkv2-1.fna&oh=fb9769640cfb4c36479c63ae61b3c6eb&oe=5E4BE8B5">
+            </div>
+      
+            <div class="uk-width-expand">
+                <h3 class="uk-card-title uk-margin-remove-bottom odinn" v-if="item.starfsmadur == 'odinn'">Óðinn</h3>
+                <h3 class="uk-card-title uk-margin-remove-bottom robert" v-else-if="item.starfsmadur == 'robert'">Róbert </h3>
+                <h3 class="uk-card-title uk-margin-remove-bottom olafur" v-else-if="item.starfsmadur == 'oli'">Ólafur</h3>
+                <h3 class="uk-card-title uk-margin-remove-bottom valdi" v-else-if="item.starfsmadur == 'torvald'">Þorvaldur</h3>
+                <h3 class="uk-card-title uk-margin-remove-bottom steina" v-else-if="item.starfsmadur == 'steina'">Steina</h3>
+                <h3 class="uk-card-title uk-margin-remove-bottom halla" v-else-if="item.starfsmadur == 'halla'">Halla</h3>
+                <h3 class="uk-card-title uk-margin-remove-bottom ragna" v-else-if="item.starfsmadur == 'ragna'">Ragna</h3>
+            </div><!-- .uk-width-expand -->
 
-</div><!-- .valmoguleikar -->
+        </div><!-- .uk-grid-small -->
+
+   </template>
+
+    <template #expanded-item="{ headers,item }" #post.minnismidi="{item}">
+    <td :colspan="headers.length">
+       {{ item.minnismidi }}
+    </td>
+    </template>
+
+   <!-- sundlaug ///////////////////////////// -->
+   <template #item.Sundlaug>
+     <span class="ker">Sundlaug</span>
+   </template>
+
+   <template #post.hitisundlaug="{item}">
+     <span class="hiti">{{ item.hitisundlaug }}</span>
+   </template>
+
+   <template #post.malingsundlaug="post">
+     {{ post.malingsundlaug }}
+   </template>
+
+   <template #post.testsundlaug="post">
+     {{ post.testsundlaug }}
+   </template>
+
+    <template #post.utkomasundlaug="post">
+     <span class="leid">{{ post.utkomasundlaug }}</span>
+   </template>
+   
+    <!-- kaldur pottur /////////////////////// -->
+   <template #item.KaldurPottur>
+     <span class="ker">Kaldur Pottur</span>
+   </template>
+
+   <template #post.hitikaldurpottur="post">
+     <span class="hiti" v-html="post.hitikaldurpottur"></span>
+   </template>
+
+   <template #post.malingkaldurpottur="post">
+     {{ post.malingkaldurpottur }}
+   </template>
+
+   <template #post.testkaldurpottur="post">
+     {{ post.testkaldurpottur }}
+   </template>
+
+    <template #post.utkomakaldurpottur="post">
+     {{ post.utkomakaldurpottur }}
+   </template>
+
+   <!-- heitur pottur ////////////////////// -->
+   <template #item.HeiturPottur>
+     <span class="ker">Heitur Pottur</span>
+   </template>
+
+   <template #post.hitiheiturpottur="post">
+     {{ post.hitiheiturpottur }}
+   </template>
+
+   <template #post.malingheiturpottur="post">
+     {{ post.malingheiturpottur }}
+   </template>
+
+   <template #post.testheiturpottur="post">
+     {{ post.testheiturpottur }}
+   </template>
+
+    <template #post.utkomaheiturpottur="post">
+     {{ post.utkomaheiturpottur }}
+   </template>
+
+   </v-data-table>
+
+  </div><!-- .data -->
 
 </template>
 
 <script>
-import axios from 'axios'
-import strapi from '~/utils/Strapi'
-import { mapMutations } from 'vuex'
-import { NotificationProgrammatic as Notification } from 'buefy'
+import axios from "axios";
+import strapi from "~/utils/Strapi";
+import { mapMutations } from "vuex";
 
 export default {
-name: "valmoguleikar",
+  computed: {
+    // Set your username thanks to your getter
+    username() {
+      return this.$store.getters["auth/username"];
+    },
+    avatar() {
+      return this.$store.getters["auth/avatar"];
+    },
+    headers(){
+     return [
+      // dagsetning
+      //{text: 'M', value: 'minnismidi'},
+      {text: 'Dagsetning', value: 'created_at', 'sortable': true, 'filterable': true},
+      {text: 'Starfsmaður', value: 'starfsmadur'},
+      //sundlaug
+      {text: 'Ker', value: 'Sundlaug', 'sortable': true},
+      {text: '°C', value: 'hitisundlaug', 'sortable': true},
+      {text: 'Klórstöð', value: 'malingsundlaug', 'sortable': true},
+      {text: 'Mæling', value: 'testsundlaug', 'sortable': true},
+      {text: 'Leiðrétt', value: 'utkomasundlaug', 'sortable': true},
+      // kaldur pottur
+      {text: 'Ker', value: 'KaldurPottur', 'sortable': true},
+      {text: '°C', value: 'hitikaldurpottur', 'sortable': true},
+      {text: 'Klórstöð', value: 'malingkaldurpottur', 'sortable': true},
+      {text: 'Mæling', value: 'testkaldurpottur', 'sortable': true},
+      {text: 'Leiðrétt', value: 'utkomakaldurpottur', 'sortable': true},
+      // heitur pottur
+      {text: 'Ker', value: 'HeiturPottur', 'sortable': true},
+      {text: '°C', value: 'hitiheiturpottur', 'sortable': true},
+      {text: 'Klórstöð', value: 'malingheiturpottur', 'sortable': true},
+      {text: 'Mæling', value: 'testheiturpottur', 'sortable': true},
+      {text: 'Leiðrétt', value: 'utkomaheiturpottur', 'sortable': true},
+      {text: '', value: 'data-table-expand'},
+     ]
+    },
+    utkomasundlaugLimited(){
+      if ( this.utkomasundlaug.length > 19 ) {
+        return this.utkomasundlaug.substring(0,4) + '...'
+      } else {
+        return this.utkomasundlaug
+      }
+    },
+  },
 
-components: {
-},
-
-data () {
-
+  data() {
     return {
      posts: [],
-     hitilaug: null,
-     hitikaldur: null,
-     hitiheitur: null,
-     malingsundlaug: null,
-     malingkaldurpottur: null,
-     malingheiturpottur: null,
-     testsundlaug: null,
-     testkaldurpottur: null,
-     testheiturpottur: null,
-     //utkomasundlaug: null,
-     //utkomakaldurpottur: null,
-     //utkomaheiturpottur: null,
-     minnismidi: null,
-     klormagn: null,
-     tokamotiklor: null,
-     treifklornema: null,
-     mynd: "",
-     id: "",
-     starfsmadur: "",
-     veljadate: "",
-     output: '',
-     showWeekNumber: false,
-
-      rules: [
-        value => !!value || 'Fylltu inn!.',
-        //value => (value && value.length >= 2) || 'Minst 3 stafir.',
-      ],
-
+     expanded: [],
+     singleExpand: false,
+     search: '',
+     itemsPerPageItems: [5, 10, 15, 20, 30, 40, 50, 100, -1],
+     pagination: {
+        itemsPerPage: 10
+     },
+     itemsPerPageAllText: "Allar",
     }
   },
- 
- computed: {
-  total: function() {
-      let calculatedTotal = this.malingsundlaug - this.testsundlaug;
-      this.utkomasundlaug_total = calculatedTotal
-      return calculatedTotal;
-    },
-    total: function() {
-      let calculatedTotal = this.malingkaldurpottur - this.testkaldurpottur;
-      this.utkomakaldurpottur_total = calculatedTotal
-      
-      return calculatedTotal;
-    },
-    total: function() {
-      let calculatedTotal = this.malingheiturpottur - this.testheiturpottur;
-      this.utkomaheiturpottur_total = calculatedTotal
-      
-      return calculatedTotal;
-    },
-    utkomasundlaug() {
-      return this.malingsundlaug - this.testsundlaug;
-    },
-    utkomakaldurpottur() {
-      return this.malingkaldurpottur - this.testkaldurpottur;
-    },
-    utkomaheiturpottur() {
-      return this.malingheiturpottur - this.testheiturpottur;
-    },
+  // wp reminders import
+  async created() {
+    axios
+      .get(`http://localhost:1337/klors?_sort=created_at:desc`)
+      //.get(`https://sundlaug.herokuapp.com/klormalingars?_sort=created_at:desc`)
+      .then(response => {
+        this.posts = response.data;
+      })
+      .catch(e => {});
   },
-
-/*    computed: {
-    total: function() {
-      let calculatedTotal = this.form.sale_quantity * this.form.sale_rate;
-      this.sale_total = calculatedTotal;
-      
-      return calculatedTotal;
+  methods: {
+      filterOnlyCapsText (value, search, item) {
+        return value != null &&
+          search != null &&
+          typeof value === 'string' &&
+          value.toString().toLocaleUpperCase().indexOf(search) !== -1
+      },
     },
- */
-   // Pushes posts to the server when called.
-    methods: {
-            async formSubmit(e) {
-                e.preventDefault();
-                let currentObj = this;
-                //axios.post('http://localhost:1337/klormalingars', {
-                axios.post('https://sundlaug.herokuapp.com/klormalingars', {
-                    hitisundlaug: this.hitilaug,
-                    hitikaldurpottur: this.hitikaldurr,
-                    hitiheiturpottur: this.hitiheitur,
-                    malingsundlaug: this.malingsundlaug,
-                    malingkaldurpottur: this.malingkaldurpottur,
-                    malingheiturpottur: this.malingheiturpottur,
-                    testsundlaug: this.testsundlaug,
-                    testkaldurpottur: this.testkaldurpottur,
-                    testheiturpottur: this.testheiturpottur,
-                    utkomasundlaug: this.utkomasundlaug,
-                    utkomakaldurpottur: this.utkomakaldurpottur,
-                    utkomaheiturpottur: this.utkomaheiturpottur,
-                    minnismidi: this.minnismidi,
-                    klormagn: this.klormagn,
-                    tokamotiklor: this.tokamotiklor,
-                    treifklornema: this.threifklornema,
-                    mynd: this.mynd,
-                    id: this.id,
-                    starfsmadur: this.starfsmadur,
-                    veljadate: this.veljadate
-                })
-                .then(function (response) {
-                    currentObj.output = response.data;
-
-                    Notification.open({
-                    message: 'Klórmæling Vistuð! <br> Eigðu Góðan dag😉',
-                    type: 'is-success',
-                    position: 'is-top',
-                    })
-
-                })
-                .catch(function (error) {
-                    currentObj.output = error;
-
-                    Notification.open({
-                    message: 'Þú hefur ekki leyfi til að Posta þessari Klórmælingu!',
-                    type: 'is-danger',
-                    position: 'is-top',
-                    })
-
-                });
-            },
-             ...mapMutations({
-            setUser: 'auth/setUser'
-            })
-        }
 }
 </script>

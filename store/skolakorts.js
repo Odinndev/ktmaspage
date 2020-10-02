@@ -1,55 +1,55 @@
 import Cookies from 'js-cookie'
 
 export const state = () => ({  
-  items: []
+  post: []
 })
 
 export const mutations = {  
-  setItems(state, items) {
-    state.items = items
+  setpost(state, post) {
+    state.post = post
   },
   add(state, item) {
-    const record = state.items.find(i => i.id === item.id)
+    const record = state.post.find(i => i.id === item.id)
 
     if (!record) {
-      state.items.push({
+      state.post.push({
         quantity: 1,
         ...item
       })
     } else {
       record.quantity++
     }
-    Cookies.set('klors', state.items)
+    Cookies.set('posts', state.post)
   },
   remove(state, item) {
-    const record = state.items.find(i => i.id === item.id)
+    const record = state.post.find(i => i.id === item.id)
 
     if (record.quantity > 1) {
       record.quantity--
     } else {
-      const index = state.items.findIndex(i => i.id === item.id)
-      state.items.splice(index, 1)
+      const index = state.post.findIndex(i => i.id === item.id)
+      state.post.splice(index, 1)
     }
-    Cookies.set('klors', state.items)
+    Cookies.set('posts', state.post)
   },
   emptyList(state) {
-    state.items = []
-    Cookies.set('klors', state.items)
+    state.post = []
+    Cookies.set('posts', state.post)
   }
 }
 
 export const getters = {  
-  items: state => {
-    return state.items
+  post: state => {
+    return state.post
   },
   price: state => {
-    return state.items.reduce(
+    return state.post.reduce(
       (accumulator, item) => accumulator + item.price * item.quantity,
       0
     )
   },
-  numberOfItems: state => {
-    return state.items.reduce(
+  numberOfpost: state => {
+    return state.post.reduce(
       (accumulator, item) => accumulator + item.quantity,
       0
     )

@@ -8,7 +8,7 @@
 
         <v-card-text>
           <div class="font-weight-bold ml-8 mb-2">
-           Tilkynningar
+           <span>Tilkynningar</span>
           </div>
 
           <v-timeline
@@ -25,7 +25,7 @@
               <div>
                 <div class="font-weight-normal">
                   <strong>Óðinn</strong> 
-                  <v-icon size="14">mdi-calendar</v-icon> {{ post.created_at | moment('DD/MM') }} <v-icon size="14">mdi-clock</v-icon> {{ post.created_at | moment("H:mm") }}
+                  <v-icon size="12" color="blue-grey darken-1">mdi-calendar</v-icon><small>{{ post.created_at | moment('DD/MM') }}</small> <v-icon size="12" color="blue-grey darken-1">mdi-clock</v-icon><small>{{ post.created_at | moment("H:mm") }}</small>
                 </div>
                 <div>{{ post.desc }}</div>
               </div>
@@ -39,7 +39,7 @@
               <div>
                 <div class="font-weight-normal">
                   <strong>Róbert</strong>
-                  <v-icon size="14">mdi-calendar</v-icon> {{ post.created_at | moment('DD/MM') }} <v-icon size="14">mdi-clock</v-icon> {{ post.created_at | moment("H:mm") }}
+                  <v-icon size="12" color="blue-grey darken-1">mdi-calendar</v-icon><small>{{ post.created_at | moment('DD/MM') }}</small> <v-icon size="12" color="blue-grey darken-1">mdi-clock</v-icon><small>{{ post.created_at | moment("H:mm") }}</small>
                 </div>
                 <div>{{ post.desc }}</div>
               </div>
@@ -53,7 +53,7 @@
               <div>
                 <div class="font-weight-normal">
                   <strong>Óli</strong>
-                  <v-icon size="14">mdi-calendar</v-icon> {{ post.created_at | moment('DD/MM') }} <v-icon size="14">mdi-clock</v-icon> {{ post.created_at | moment("H:mm") }}
+                  <v-icon size="12" color="blue-grey darken-1">mdi-calendar</v-icon><small>{{ post.created_at | moment('DD/MM') }}</small> <v-icon size="12" color="blue-grey darken-1">mdi-clock</v-icon><small>{{ post.created_at | moment("H:mm") }}</small>
                 </div>
                 <div>{{ post.desc }}</div>
               </div>
@@ -68,7 +68,7 @@
               <div>
                 <div class="font-weight-normal">
                   <strong>Þorvaldur</strong>
-                  <v-icon size="14">mdi-calendar</v-icon> {{ post.created_at | moment('DD/MM') }} <v-icon size="14">mdi-clock</v-icon> {{ post.created_at | moment("H:mm") }}
+                  <v-icon size="12" color="blue-grey darken-1">mdi-calendar</v-icon><small>{{ post.created_at | moment('DD/MM') }}</small> <v-icon size="12" color="blue-grey darken-1">mdi-clock</v-icon><small>{{ post.created_at | moment("H:mm") }}</small>
                 </div>
                 <div>{{ post.desc }}</div>
               </div>
@@ -82,7 +82,7 @@
               <div>
                 <div class="font-weight-normal">
                   <strong>Steina</strong>
-                  <v-icon size="14">mdi-calendar</v-icon> {{ post.created_at | moment('DD/MM') }} <v-icon size="14">mdi-clock</v-icon> {{ post.created_at | moment("H:mm") }}
+                  <v-icon size="12" color="blue-grey darken-1">mdi-calendar</v-icon><small>{{ post.created_at | moment('DD/MM') }}</small> <v-icon size="12" color="blue-grey darken-1">mdi-clock</v-icon><small>{{ post.created_at | moment("H:mm") }}</small>
                 </div>
                 <div>{{ post.desc }}</div>
               </div>
@@ -96,7 +96,7 @@
               <div>
                 <div class="font-weight-normal">
                   <strong>Halla</strong>
-                  <v-icon size="14">mdi-calendar</v-icon> {{ post.created_at | moment('DD/MM') }} <v-icon size="14">mdi-clock</v-icon> {{ post.created_at | moment("H:mm") }}
+                  <v-icon size="12" color="blue-grey darken-1">mdi-calendar</v-icon><small>{{ post.created_at | moment('DD/MM') }}</small> <v-icon size="12" color="blue-grey darken-1">mdi-clock</v-icon><small>{{ post.created_at | moment("H:mm") }}</small>
                 </div>
                 <div>{{ post.desc }}</div>
               </div>
@@ -110,7 +110,7 @@
               <div>
                 <div class="font-weight-normal">
                   <strong>Ragna</strong>
-                  <v-icon size="14">mdi-calendar</v-icon> {{ post.created_at | moment('DD/MM') }} <v-icon size="14">mdi-clock</v-icon> {{ post.created_at | moment("H:mm") }}
+                  <v-icon size="12" color="blue-grey darken-1">mdi-calendar</v-icon><small>{{ post.created_at | moment('DD/MM') }}</small> <v-icon size="12" color="blue-grey darken-1">mdi-clock</v-icon><small>{{ post.created_at | moment("H:mm") }}</small>
                 </div>
                 <div>{{ post.desc }}</div>
               </div>
@@ -158,7 +158,7 @@ computed: {
 },
 
   async created() {
-    axios.get(`http://localhost:1337/tilks?_limit=5&_sort=created_at:desc`)
+    axios.get(`http://localhost:1337/tilks?_limit=10&_sort=created_at:desc`)
     //axios.get(`https://sundlaug.herokuapp.com/klormalingars?_sort=created_at:desc`)
     .then(response => {
     this.posts = response.data

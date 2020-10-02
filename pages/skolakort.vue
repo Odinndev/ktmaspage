@@ -14,7 +14,7 @@
      <v-container>
       <v-row no-gutters>
 
-  <v-card v-for="post in filteredList" :key="id"
+  <v-card v-for="post in posts" :key="id"
     class="mx-auto"
     max-width="344"
     min-height="218"
@@ -26,7 +26,8 @@
 
     <v-list-item five-line>
       <v-list-item-content>
-        <div class="overline">Skólakort <v-icon class="ml-16">mdi-clipboard-edit-outline</v-icon></div>
+        <div class="overline">Skólakort 
+        <n-link :to="`/skort/${post.id}`"><v-icon class="ml-16">mdi-clipboard-edit-outline</v-icon></n-link></div>
         <v-list-item-title class="headline mb-1">{{ post.nafn }}</v-list-item-title>
         <v-list-item-subtitle>
          <v-icon>mdi-home</v-icon> {{ post.heimili }} <br>
@@ -107,7 +108,7 @@ filters: {
 
 },// filters
 
-    async created() {
+    async fetch() {
     axios.get(`http://localhost:1337/skolakorts?_sort=created_at:desc`)
     //axios.get(`https://sundlaug.herokuapp.com/klormalingars?_sort=created_at:desc`)
     .then(response => {

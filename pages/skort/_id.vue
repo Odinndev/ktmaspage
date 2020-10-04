@@ -70,14 +70,29 @@
     :locale="locale"
     editable>
     </b-datepicker>
-    <br>
+
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-0">
+
+    <p class="mt-5"><v-icon>mdi-earth</v-icon>Staðsetning korts
     <select class="uk-select uk-form-success" v-model="post.status">
       <option value="sund">Geymt í Sundlaug</option>
       <option value="uti">Hjá Korthafa</option>
       <option value="pontun">Í Pöntun</option>
       </select>
-    <br>
-    <br>
+    </p>  
+    <p><v-icon>mdi-account-box</v-icon> Starfsmaður
+    <select class="uk-select uk-form-danger" v-model="post.starfsmadur">
+     <option class="odinn" value="odinn">Óðinn</option>
+     <option class="robert" value="robert">Róbert</option>
+     <option class="oli" value="oli">Óli</option>
+     <option class="torvald" value="torvald">Þorvaldur</option>
+     <option class="steina" value="steina">Steina</option>
+     <option class="halla" value="halla">Halla</option>
+     <option class="ragna" value="ragna">Ragna</option>
+    </select>
+    </p>
+
+    </div><!-- grid -->
 
     <v-btn class="ml-2" depressed color="error"><n-link style="color:white;text-decoration:none;" to="/skolakort">Hætta við</n-link></v-btn>
 

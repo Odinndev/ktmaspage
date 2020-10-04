@@ -14,7 +14,7 @@
      <v-container>
       <v-row no-gutters>
 
-  <v-card v-for="post in filteredList" :key="id"
+  <v-card v-for="post in filteredList" :key="post.id"
     class="mx-auto"
     max-width="344"
     outlined
@@ -24,7 +24,9 @@
 
     <v-list-item five-line>
       <v-list-item-content>
-        <div class="overline">Árskort <v-icon class="ml-16">mdi-clipboard-edit-outline</v-icon></div>
+        <div class="overline">Árskort 
+          <n-link :to="`/akort/${post.id}`"><v-icon class="ml-16">mdi-clipboard-edit-outline</v-icon></n-link>
+        </div>
         <v-list-item-title class="headline mb-1">{{ post.nafn }}</v-list-item-title>
         <v-list-item-subtitle>
          <v-icon>mdi-home</v-icon> {{ post.heimili }} <br>

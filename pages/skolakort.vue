@@ -14,7 +14,7 @@
      <v-container>
       <v-row no-gutters>
 
-  <v-card v-for="post in posts" :key="id"
+  <v-card v-for="post in filteredList" :key="post.id"
     class="mx-auto"
     max-width="344"
     min-height="218"

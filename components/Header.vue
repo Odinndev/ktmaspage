@@ -7,13 +7,13 @@
     <div class="uk-navbar-left">
 
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="/">Heim</a></li>
+            <li class="uk-active"><n-link to="/">Heim</n-link></li>
             <li>
                 <a href="#">Klórmælingar</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-active"><a href="/nymaling">+Ný Mæling</a></li>
-                        <li><a href="/klor">klórmælingar</a></li>
+                        <li class="uk-active"><n-link to="/nymaling">+Ný Mæling</n-link></li>
+                        <li><n-link to="/klor">klórmælingar</n-link></li>
                     </ul>
                 </div>
             </li>
@@ -21,8 +21,8 @@
                 <a href="#">Þrifaplan</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-active"><a href="/nythrif">+Nýtt Þrifaplan</a></li>
-                        <li><a href="/thrif">Þrifaplön</a></li>
+                        <li class="uk-active"><n-link to="/nythrif">+Nýtt Þrifaplan</n-link></li>
+                        <li><n-link to="/thrif">Þrifaplön</n-link></li>
                     </ul>
                 </div>
             </li>
@@ -30,8 +30,8 @@
                 <a href="#">Árskort</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-active"><a href="/nyttarskort">+Nýtt Árskort</a></li>
-                        <li><a href="/arskort">Skoða Safn</a></li>
+                        <li class="uk-active"><n-link to="/nyttarskort">+Nýtt Árskort</n-link></li>
+                        <li><n-link to="/arskort">Skoða Safn</n-link></li>
                     </ul>
                 </div>
             </li>
@@ -39,9 +39,9 @@
                 <a href="#">Skólakort</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-active"><a href="/nyttskolakort">+Nýtt Skólakort</a></li>
-                        <li><a href="/skolakort">Skoða Safn</a></li>
-                        <li><a href="/skolakortipontun">Í Pöntun</a></li>
+                        <li class="uk-active"><n-link to="/nyttskolakort">+Nýtt Skólakort</n-link></li>
+                        <li><n-link to="/skolakort">Skoða Safn</n-link></li>
+                        <li><n-link to="/skolakortipontun">Í Pöntun</n-link></li>
                     </ul>
                 </div>
             </li>
@@ -49,8 +49,9 @@
                 <a href="#">Matur</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-active"><a href="/nymatarpontun">+Ný Matarpöntun</a></li>
-                        <li><a href="/matarpantanir">Matarpantanir</a></li>
+                        <li class="uk-active"><n-link to="/nymatarpontun">+Ný Matarpöntun</n-link></li>
+                        <li><n-link to="/matarpantanir">Matarpantanir</n-link></li>
+                        <li><n-link to="/matur">Skoða Matarpantanir</n-link></li>
                     </ul>
                 </div>
             </li>

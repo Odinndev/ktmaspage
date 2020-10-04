@@ -9,6 +9,25 @@
         <v-card-text>
           <div class="font-weight-bold ml-8 mb-2">
            <span>Tilkynningar</span>
+            <!-- +nytilkynning -->
+            <v-btn
+            uk-toggle="target: #modal-close-outside"
+            class="mx-2"
+            fab
+            dark
+            small
+            color="orange"
+            >
+            <v-icon dark>mdi-plus</v-icon>
+          </v-btn>
+
+          <div id="modal-close-outside" class="uk-flex-top" uk-modal>
+          <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+              <button style="color:black!important;" class="uk-modal-close-default" type="button" uk-close></button>
+              <nytilk />
+          </div>
+      </div>
+
           </div>
 
           <v-timeline
@@ -134,8 +153,13 @@ import axios from 'axios'
 import strapi from '~/utils/Strapi'
 import { mapMutations } from 'vuex'
 import { NotificationProgrammatic as Notification } from 'buefy'
+import nytilk from './nytilk'
 
 export default {
+
+components: {
+ nytilk
+},
 
 data () {
 

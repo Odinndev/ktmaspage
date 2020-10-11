@@ -41,7 +41,7 @@
                     <ul class="uk-nav uk-navbar-dropdown-nav">
                         <li class="uk-active"><n-link to="/nyttskolakort">+Nýtt Skólakort</n-link></li>
                         <li><n-link to="/skolakort">Skoða Safn</n-link></li>
-                        <li><n-link to="/skolakortipontun">Í Pöntun</n-link></li>
+                        <li><n-link to="/skort/pontun">Í Pöntun</n-link></li>
                     </ul>
                 </div>
             </li>

@@ -2,17 +2,9 @@
   <div>
   <v-app>
     <Header />
-
-    <!-- <div class="uk-section uk-section-default">
-      <div class="uk-container uk-container-large"> -->
-        
-        <nuxt />
-
-        <Footer />
-     </v-app>
-      <!-- </div>
-    </div> -->
-
+     <nuxt />
+     <Footer />
+    </v-app>
   </div>
 </template>
 

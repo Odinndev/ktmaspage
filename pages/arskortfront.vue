@@ -2,7 +2,8 @@
 
 <div class="arskortfront">
 
-  <v-card v-for="post in posts" :key="id"
+
+  <v-card v-for="post in posts" :key="post.nafn"
     class="mx-auto"
     max-width="344"
     min-height="218"
@@ -41,6 +42,17 @@
     </v-card-actions>
 
   </v-card>
+
+            <v-btn
+            uk-toggle="target: #modal-close-outside"
+            class="mt-1 mx-2 uk-align-right"
+            fab
+            dark
+            small
+            color="blue-grey"
+            >
+            <v-icon dark>mdi-plus</v-icon>
+          </v-btn>
 
 </div><!-- .arskortfront -->
 

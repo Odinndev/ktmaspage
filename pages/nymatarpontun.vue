@@ -86,7 +86,7 @@ methods: {
             async nyPontun(e) {
                 e.preventDefault();
                 let currentObj = this;
-                axios.post('http://localhost:1337/maturs', {
+                axios.post('http://localhost:1337/pantanirs', {
                 //axios.post('https://sundlaug.herokuapp.com/klormalingars', {
                     stadur: this.stadur,
                     vakt: this.vakt,

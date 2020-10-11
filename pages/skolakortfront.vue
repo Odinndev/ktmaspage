@@ -2,7 +2,7 @@
 
   <div class="skolakort">
 
-  <v-card v-for="post in posts" :key="id"
+  <v-card v-for="post in posts" :key="post.id"
     class="mx-auto"
     max-width="344"
     outlined
@@ -54,6 +54,16 @@
 
   </v-card>
 
+          <v-btn
+            uk-toggle="target: #modal-close-outside"
+            class="mt-1 mx-2 uk-align-right"
+            fab
+            dark
+            small
+            color="#b83280"
+            >
+            <v-icon dark>mdi-plus</v-icon>
+          </v-btn>
 
 
   </div><!-- .skolakort -->

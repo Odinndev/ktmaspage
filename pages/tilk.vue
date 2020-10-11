@@ -8,33 +8,68 @@
 
         <v-card-text>
           <div class="font-weight-bold ml-8 mb-2">
-           <span>Tilkynningar</span>
+            
+          <b-collapse :open="false" aria-id="tilks">
+            
             <!-- +nytilkynning -->
-            <v-btn
-            uk-toggle="target: #modal-close-outside"
-            class="mx-2"
-            fab
-            dark
-            small
-            color="orange"
-            >
-            <v-icon dark>mdi-plus</v-icon>
-          </v-btn>
+                <v-btn
+                  color="orange"
+                  fab
+                  dark
+                  small
+                  absolute
+                  right
+                  slot="trigger"
+                  aria-controls="tilks"
+                >
+                <v-icon>mdi-plus</v-icon>
+                </v-btn>
+                
+                
+                <div class="notification">
+                <div class="content">
+                  
+                  <v-text-field
+                  v-model="desc"
+                  label="Tilkynning"
+                  prepend-icon="mdi-information"
+                  clear-icon="mdi-close-circle"
+                  clearable
+                  ></v-text-field>
 
-          <div id="modal-close-outside" class="uk-flex-top" uk-modal>
+                  <p><v-icon>mdi-account-box</v-icon> Starfsmaður
+                  <select class="uk-select" v-model="starfsmadur">
+                  <option class="odinn" value="odinn">Óðinn</option>
+                  <option class="robert" value="robert">Róbert</option>
+                  <option class="oli" value="oli">Óli</option>
+                  <option class="steina" value="steina">Steina</option>
+                  <option class="halla" value="halla">Halla</option>
+                  <option class="ragna" value="ragna">Ragna</option>
+                  <option class="torvald" value="auka">Auka</option>
+                  </select>
+                  </p>
+
+                  <v-btn @click="nyTilk" style="color:black;text-decoration:none;">Birta</v-btn>
+
+                </div>
+            </div>
+        </b-collapse>
+              
+
+          <!-- <div id="modal-close-outside" class="uk-flex-top" uk-modal>
           <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
               <button style="color:black!important;" class="uk-modal-close-default" type="button" uk-close></button>
               <nytilk />
           </div>
-      </div>
-
+      </div> -->
+          <span>Tilkynningar</span>
           </div>
 
           <v-timeline
             align-top
             dense
           >
-          <span v-for="post in posts">
+          <span v-for="post in posts" :key="id">
 
             <v-timeline-item
               v-if="post.starfsmadur == 'odinn'"
@@ -46,7 +81,7 @@
                   <strong>Óðinn</strong> 
                   <v-icon size="12" color="blue-grey darken-1">mdi-calendar</v-icon><small>{{ post.created_at | moment('DD/MM') }}</small> <v-icon size="12" color="blue-grey darken-1">mdi-clock</v-icon><small>{{ post.created_at | moment("H:mm") }}</small>
                 </div>
-                <div>{{ post.desc }}</div>
+                <div>{{ post.desc }} </div>
               </div>
             </v-timeline-item>
 
@@ -72,21 +107,6 @@
               <div>
                 <div class="font-weight-normal">
                   <strong>Óli</strong>
-                  <v-icon size="12" color="blue-grey darken-1">mdi-calendar</v-icon><small>{{ post.created_at | moment('DD/MM') }}</small> <v-icon size="12" color="blue-grey darken-1">mdi-clock</v-icon><small>{{ post.created_at | moment("H:mm") }}</small>
-                </div>
-                <div>{{ post.desc }}</div>
-              </div>
-            </v-timeline-item>
-
-
-            <v-timeline-item
-              v-if="post.starfsmadur == 'torvald'"
-              color="#C5CAE9"
-              small
-            >
-              <div>
-                <div class="font-weight-normal">
-                  <strong>Þorvaldur</strong>
                   <v-icon size="12" color="blue-grey darken-1">mdi-calendar</v-icon><small>{{ post.created_at | moment('DD/MM') }}</small> <v-icon size="12" color="blue-grey darken-1">mdi-clock</v-icon><small>{{ post.created_at | moment("H:mm") }}</small>
                 </div>
                 <div>{{ post.desc }}</div>
@@ -135,6 +155,20 @@
               </div>
             </v-timeline-item>
 
+            <v-timeline-item
+              v-if="post.starfsmadur == 'auka'"
+              color="#C5CAE9"
+              small
+            >
+              <div>
+                <div class="font-weight-normal">
+                  <strong>Auka</strong>
+                  <v-icon size="12" color="blue-grey darken-1">mdi-calendar</v-icon><small>{{ post.created_at | moment('DD/MM') }}</small> <v-icon size="12" color="blue-grey darken-1">mdi-clock</v-icon><small>{{ post.created_at | moment("H:mm") }}</small>
+                </div>
+                <div>{{ post.desc }}</div>
+              </div>
+            </v-timeline-item>
+
             </span><!-- posts -->
 
           </v-timeline>
@@ -153,26 +187,22 @@ import axios from 'axios'
 import strapi from '~/utils/Strapi'
 import { mapMutations } from 'vuex'
 import { NotificationProgrammatic as Notification } from 'buefy'
-import nytilk from './nytilk'
+//import nytilk from './nytilk'
 
 export default {
 
 components: {
- nytilk
+ //nytilk
 },
 
 data () {
 
 return {
  posts: [],
- // avatars
- odinn: 'https://lh3.googleusercontent.com/a-/AAuE7mB4dRHKqhaTxYA9CawE2YOf7Scvb5_EEFGola1SGEo=s96-cc',
- robert: 'https://scontent.frkv2-1.fna.fbcdn.net/v/t31.0-8/1493444_1377246689198452_1488600122_o.jpg?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=1DfxRFdhUuUAX-vu4y9&_nc_ht=scontent.frkv2-1.fna&oh=c20909f33ca0099b65d5c76319b69ffb&oe=5F869BA2',
- oli: 'https://scontent.frkv2-1.fna.fbcdn.net/v/t1.0-1/p100x100/54521146_10156401125097602_6650388366841872384_n.jpg?_nc_cat=105&_nc_oc=AQnYWEC6NV8s7ACHSfU4JVkypXCg7eKE0JAl5a8GWm1aCoQg5wGw1WrPsy09kgd8SOY&_nc_ht=scontent.frkv2-1.fna&oh=5ae5d74131a5e531601506455a70fb5a&oe=5E84D0F1',
- torvald: 'https://scontent.frkv2-1.fna.fbcdn.net/v/t1.0-1/p100x100/12998769_10206297823309072_533707040792698881_n.jpg?_nc_cat=110&_nc_oc=AQnqczaJAHhFgxRvyopVA_ZonW81JKntg6F3wSl4YXSPPo7uFbyz-Xqwnrlmc6wjquE&_nc_ht=scontent.frkv2-1.fna&oh=9341c777686b46d4a45b30399c6eb29f&oe=5E4DEC99',
- steina: 'https://scontent.frkv2-1.fna.fbcdn.net/v/t1.0-9/107006745_10216361647170515_7033380553091762226_n.jpg?_nc_cat=100&_nc_sid=09cbfe&_nc_ohc=Cw_Z7ryC0CYAX-RkjFG&_nc_oc=AQnoh5M_Wi5NVGJ6qQyiYSTPkUU52Wx2WOmjTdTp3qp9Au2rCcB-HHwBtisT3uSqCas&_nc_ht=scontent.frkv2-1.fna&oh=7a4eeaf19b39b70cecb1183be32f5487&oe=5F86E135',
- halla: 'https://scontent.frkv2-1.fna.fbcdn.net/v/t1.0-9/67403435_10157252483601832_2675199781374001152_n.jpg?_nc_cat=100&_nc_sid=09cbfe&_nc_ohc=RoUVzUcWHaoAX_9eJPD&_nc_ht=scontent.frkv2-1.fna&oh=bfe481fb21d18df9935ddb8c691050fb&oe=5F85AC5A',
- ragna: 'https://scontent.frkv2-1.fna.fbcdn.net/v/t31.0-1/p100x100/13613184_10205990141146999_3445103564979179267_o.jpg?_nc_cat=108&_nc_oc=AQk71-ivWS1NpHRU6fRPzFFU06a-VxudBffqnKIkJSM1Squnqi-d0tWkC_YYr5FRHqk&_nc_ht=scontent.frkv2-1.fna&oh=fb9769640cfb4c36479c63ae61b3c6eb&oe=5E4BE8B5',
+ clicked: false,
+ desc: null,
+ newDesc: null,
+ starfsmadur: null,
 }
 
 },
@@ -192,9 +222,49 @@ computed: {
     })
   },
 
-methods: {
+          methods: {
+            async nyTilk(e) {
+                e.preventDefault();
+                let currentObj = this;
+                axios.post('http://localhost:1337/tilks', {
+                //axios.post('https://sundlaug.herokuapp.com/klormalingars', {
+                    //this.desc = Object.assign({}, this.desc), {this.desc}; 
+                    desc: this.desc,
+                    starfsmadur: this.starfsmadur
+                })
+                .then(function (response) {
+                    currentObj.output = response.data;
+                    
+                    Notification.open({
+                    message: 'Tilkynning Birt! <br> Eigðu Góðan dag😉',
+                    type: 'is-success',
+                    })
 
-},
+                })
+
+                .catch(function (error) {
+                    currentObj.output = error;
+
+                    Notification.open({
+                    message: 'Þú hefur ekki leyfi til að Posta þessari Tilkynningu!',
+                    type: 'is-danger',
+                    position: 'is-bottom-right',
+                    })
+
+                });
+            },
+             ...mapMutations({
+            setUser: 'auth/setUser'
+            })
+        
+        // nyTilk() {
+        // this.posts.push({
+        // desc: this.desc,
+        // starfsmadur: this.starfsmadur
+        // })
+        // },
+
+        },
 
 }
 

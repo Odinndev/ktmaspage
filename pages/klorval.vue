@@ -5,6 +5,8 @@
   <form @submit="formSubmit">
     <fieldset class="uk-fieldset">
 
+      <div class="lg:container lg:mx-auto">
+
       <div class="grid sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 grid-rows-3 gap-0">
 
         <!-- hiti /////////////////////////////////////////// -->   
@@ -201,7 +203,7 @@
 
           <div class="minnisoginfo">
 
-          <div class="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">  
+          <div class="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">  
 
           <div class="minnismidi">
 
@@ -222,14 +224,14 @@
 
         </div><!-- grid -->
 
-        <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+        <div class="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">
 
         <div class="starfsmadur">
 
           <h1 class="starfsmadur" align="center"><dt class="name">STARFS<span>MAÐUR</span></dt></h1>
 
           <b-field>
-            <b-select v-model="starfsmadur" size="is-medium" placeholder="Starfsmaður" icon="account">
+            <b-select class="ml-15" v-model="starfsmadur" size="is-medium" placeholder="Starfsmaður" icon="account">
                 <option class="odinn" value="odinn">Óðinn</option>
                 <option class="robert" value="robert">Róbert</option>
                 <option class="oli" value="oli">Óli</option>
@@ -257,34 +259,11 @@
   
 </div><!-- grid -->
 
+</div><!-- .container -->
+
     </fieldset>
 
 </form>
-
-<!-- <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Vue Axios Post - ItSolutionStuff.com</div>
-    
-                    <div class="card-body">
-                        <form @submit="formSubmit">
-                        <strong>Hiti Sundlaug</strong>
-                        <input type="text" class="form-control" v-model="hitisundlaug">
-                        <strong>Hiti kaldur pottur:</strong>
-                        <textarea class="form-control" v-model="hitikaldurpottur"></textarea>
-    
-                        <button class="btn btn-success">Submit</button>
-                        </form>
-                        <strong>Output:</strong>
-                        <pre>
-                        {{output}}
-                        </pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
 </div><!-- .klorval -->
 
@@ -360,25 +339,8 @@ data () {
       return calculatedTotal / '2';
     },
 
-    // utkomasundlaug() {
-    //   return this.malingsundlaug - this.testsundlaug;
-    // },
-    // utkomakaldurpottur() {
-    //   return this.malingkaldurpottur - this.testkaldurpottur;
-    // },
-    // utkomaheiturpottur() {
-    //   return this.malingheiturpottur - this.testheiturpottur;
-    // },
   },
 
-/*    computed: {
-    total: function() {
-      let calculatedTotal = this.form.sale_quantity * this.form.sale_rate;
-      this.sale_total = calculatedTotal;
-      
-      return calculatedTotal;
-    },
- */
    // Pushes posts to the server when called.
     methods: {
             async formSubmit(e) {

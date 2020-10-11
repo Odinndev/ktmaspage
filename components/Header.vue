@@ -12,7 +12,7 @@
                 <a href="#">Klórmælingar</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-active"><n-link to="/nymaling">+Ný Mæling</n-link></li>
+                        <li class="uk-active"><n-link to="/klorval">+Ný Mæling</n-link></li>
                         <li><n-link to="/klor">klórmælingar</n-link></li>
                     </ul>
                 </div>
@@ -46,12 +46,12 @@
                 </div>
             </li>
             <li>
-                <a href="#">Matur</a>
+                <a href="#">Pantanir</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-active"><n-link to="/nymatarpontun">+Ný Matarpöntun</n-link></li>
-                        <li><n-link to="/matarpantanir">Matarpantanir</n-link></li>
-                        <li><n-link to="/matur">Skoða Matarpantanir</n-link></li>
+                        <li class="uk-active"><n-link to="/nymatarpontun">+Nýpöntun</n-link></li>
+                        <li><n-link to="/matarpantanir">Pantanir</n-link></li>
+                        <li><n-link to="/matur">Skoða Pantanir</n-link></li>
                     </ul>
                 </div>
             </li>

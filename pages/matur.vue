@@ -106,7 +106,7 @@ return {
     },// computed
 
 async created() {
-axios.get(`http://localhost:1337/maturs?_sort=created_at:desc`)
+axios.get(`http://localhost:1337/pantanirs?_sort=created_at:desc`)
 //axios.get(`https://sundlaug.herokuapp.com/klormalingars?_sort=created_at:desc`)
 .then(response => {
 this.posts = response.data

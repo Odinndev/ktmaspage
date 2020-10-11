@@ -17,7 +17,7 @@
   <div class="text-center py-4 lg:px-4">
   <div class="p-2 bg-gray-400 items-center text-green-800 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
     <span class="flex rounded-full bg-green-500 uppercase px-2 py-1 text-xs font-bold mr-3">Sundlaug</span>
-    <span class="font-semibold mr-2 text-left flex-auto">{{ post.hitilaug }}<span style="color:gray;">°c</span></span>
+    <span class="font-semibold mr-2 text-left flex-auto">{{ post.hitisundlaug }}<span style="color:gray;">°c</span></span>
     
   </div>
 </div>
@@ -25,7 +25,7 @@
   <div class="text-center py-4 lg:px-4">
   <div class="p-2 bg-gray-400 items-center text-orange-800 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
     <span class="flex rounded-full bg-orange-500 uppercase px-2 py-1 text-xs font-bold mr-3">Kaldur pottur</span>
-    <span class="font-semibold mr-2 text-left flex-auto">{{ post.hitikaldur }}<span style="color:gray;">°c</span></span>
+    <span class="font-semibold mr-2 text-left flex-auto">{{ post.hitikaldurpottur }}<span style="color:gray;">°c</span></span>
     
   </div>
 </div>
@@ -33,7 +33,7 @@
   <div class="text-center py-4 lg:px-4">
   <div class="p-2 bg-gray-400 items-center text-red-800 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
     <span class="flex rounded-full bg-red-500 uppercase px-2 py-1 text-xs font-bold mr-3">Heitur pottur</span>
-    <span class="font-semibold mr-2 text-left flex-auto">{{ post.hitiheitur }}<span style="color:gray;">°c</span></span>
+    <span class="font-semibold mr-2 text-left flex-auto">{{ post.hitiheiturpottur }}<span style="color:gray;">°c</span></span>
     
   </div>
 </div>
